@@ -10,33 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012050156) do
+ActiveRecord::Schema.define(version: 20171123230136) do
 
-  create_table "challenge_mets", force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "challenge_id"
+  create_table "chore_assignments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "chore_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["challenge_id"], name: "index_challenge_mets_on_challenge_id"
-    t.index ["player_id"], name: "index_challenge_mets_on_player_id"
+    t.index ["chore_id"], name: "index_chore_assignments_on_chore_id"
+    t.index ["user_id"], name: "index_chore_assignments_on_user_id"
   end
 
-  create_table "challenges", force: :cascade do |t|
-    t.string "hint"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "description"
+  create_table "chores", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "matches", force: :cascade do |t|
-    t.string "winner"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "players", force: :cascade do |t|
-    t.integer "wins"
+  create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

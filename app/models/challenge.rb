@@ -1,3 +1,3 @@
-class Challenge < ApplicationRecord
-  validates :name, presence: true
-end
+# class Challenge < ApplicationRecord
+#   validates :name, presence: true
+# end

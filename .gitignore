@@ -18,3 +18,5 @@
 !/tmp/.keep
 
 .byebug_history
+docker_run_local
+docker_deploy
