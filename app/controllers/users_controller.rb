@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
-    @users = User.order(wins: :desc).limit(15)
+    @users = User.last(15)
     json_response(extract_response_attributes(@users))
   end
 
@@ -36,9 +36,9 @@ class UsersController < ApplicationController
     params.permit(:name)
   end
 
-  def extract_response_attributes(Users)
-    Users.map do |User|
-      { name: User.name }
+  def extract_response_attributes(users)
+    users.map do |user|
+      { name: user.name }
     end
   end
 end
