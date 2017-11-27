@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:3000' # , heroku dyno name
+    origins 'controlfe.herokuapp.com', 'localhost:3000' # , heroku dyno name
 
     resource '*',
       headers: :any,
