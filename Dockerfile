@@ -8,11 +8,10 @@ RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
 
-COPY Gemfile Gemfile
+COPY Gemfile $INSTALL_PATH/Gemfile
 
 RUN bundle install
 
-COPY . .
+COPY . $INSTALL_PATH
 
-CMD bundle exec rails s
-
+CMD bundle exec rails s -b '0.0.0.0'
