@@ -14,6 +14,5 @@ RUN bundle install
 
 COPY . .
 
-CMD bundle exec rails s -p 5000
+CMD bundle exec rails s
 
-EXPOSE 5000
