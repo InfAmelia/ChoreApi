@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create!(User_params)
+    @user = User.create!(user_params)
     json_response(extract_response_attributes([@user]))
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(User_params)
+    @user.update(user_params)
     head :no_content
   end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def extract_response_attributes(users)
     users.map do |user|
-      { name: user.name }
+      { name: user.name, id: user.id }
     end
   end
 end
