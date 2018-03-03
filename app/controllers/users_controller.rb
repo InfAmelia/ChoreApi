@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def user_params
     # whitelist params
-    params.permit(:name)
+    params.permit(:name, :id)
   end
 
   def extract_response_attributes(users)
