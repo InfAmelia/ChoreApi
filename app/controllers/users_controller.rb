@@ -16,8 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    head :no_content
+    json_response(@user.update(user_params))
   end
 
   def destroy
