@@ -43,7 +43,11 @@ class ChoresController < ApplicationController
 
   def extract_response_attributes(chores)
     chores.map do |chore|
-      { id: chore.id, name: chore.name, users: chore.users_ordered, assigned_to: chore.assigned_to.name }
+      attributes = { id: chore.id, name: chore.name, users: chore.users_ordered }
+
+      if (assignee = chore.assigned_to).present?
+        attributes.merge(assigned_to: assignee)
+      end
     end
   end
 end
